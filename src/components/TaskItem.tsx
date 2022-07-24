@@ -19,7 +19,9 @@ const TaskItem = (props: any) => {
                 <Typography variant="body1">{ task.name }</Typography>
             </Box>
             <Box sx={{ width: '10%', display: 'flex', justifyContent: 'center' }}>
-                <Chip label={ task.status.name } sx={{
+                <Chip label={ task.status.name }
+                size="small"
+                sx={{
                     backgroundColor: task.status.colour, 
                     color: '#fff',
                     width: '100px',
@@ -50,7 +52,7 @@ const TaskItem = (props: any) => {
                 })}
                 </AvatarGroup>
             </Stack>
-            <Box sx={{ width: '10%', display: 'flex', justifyContent: 'center'}}>
+            <Box sx={{ width: '5%', display: 'flex', justifyContent: 'center'}}>
                 <IconButton sx={{
                     border: '1px solid',
                     borderColor: 'grey.100'
