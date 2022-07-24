@@ -1,4 +1,4 @@
-import React from "react";
+import { useContext, useEffect } from "react";
 import Avatar from "@mui/material/Avatar";
 import Container from "@mui/material/Container";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -15,10 +15,11 @@ import { useNavigate } from 'react-router-dom';
 
 import apiClient from '../services/apiClient';
 
-
 const LoginForm = (props: any) => {
 
-    const navigate = useNavigate();
+    console.log("props: ", props);
+
+    const {authStatus, user} = props;
 
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
@@ -33,20 +34,21 @@ const LoginForm = (props: any) => {
                 console.log(response)
                 if (response.status === 204) {
                     console.log("LOGGED IN SUCCESSFULLY!");
-                    navigate('/');
+                    apiClient.get('/api/user/current')
+                    .then((response: any) => {
+                        console.log("CURRENT USER: ", response);
+                        user.setCurrentUser(response.data);
+                        authStatus.setLoggedIn(true);
+                    })
                 }
             })
-        });
-
-        console.log({
-            email: data.get("email"),
-            password: data.get("password"),
         });
     };
 
     return (
             <Container component="main" maxWidth="xs">
                 <CssBaseline />
+            
                 <Box
                     sx={{
                         marginTop: 8,

@@ -10,7 +10,7 @@ const Login = (props: any) => {
     return (
         <ThemeProvider theme={theme}>
 
-        <LoginForm theme={theme} />
+        <LoginForm theme={theme} {...props} />
         <Copyright sx={{ mt: 8, mb: 4 }} />
         </ThemeProvider>
     )
