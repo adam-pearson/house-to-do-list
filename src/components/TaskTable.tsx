@@ -6,7 +6,7 @@ import { tasks } from '../apiDummy';
 const TaskTable = () => {
     return (
         <>
-            <Stack direction="column" sx={{ width: "100%" }}>
+            <Stack direction="column">
                 <Stack direction="row" px={2}>
                     <Typography variant="subtitle1" sx={{ width: "60%" }}>
                         Task
@@ -28,7 +28,7 @@ const TaskTable = () => {
                     <Typography variant="subtitle1" sx={{ width: "15%" }}>
                         Assignees
                     </Typography>
-                    <Box sx={{ width: "10%" }}></Box>
+                    <Box sx={{ width: "5%" }}></Box>
                 </Stack>
                 <TaskList tasks={tasks}/>
             </Stack>
