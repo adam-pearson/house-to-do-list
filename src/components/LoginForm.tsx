@@ -17,6 +17,8 @@ import apiClient from '../services/apiClient';
 
 const LoginForm = (props: any) => {
 
+    let navigate = useNavigate();
+
     console.log("props: ", props);
 
     const {authStatus, user} = props;
@@ -39,6 +41,7 @@ const LoginForm = (props: any) => {
                         console.log("CURRENT USER: ", response);
                         user.setCurrentUser(response.data);
                         authStatus.setLoggedIn(true);
+                        navigate('/');
                     })
                 }
             })
